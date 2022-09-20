@@ -1,8 +1,38 @@
-const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
-// Change code below this line
+class User {
+  email;
 
-const evenNumbers = numbers.filter(number => number % 2 === 0);
-const oddNumbers = numbers.filter(number => number % 2 !== 0);
+  constructor(email) {
+    this.email = email;
+  }
 
-console.log(evenNumbers);
-console.log(oddNumbers);
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  // Change code below this line
+
+  static AccessLevel = {
+    BASIC: 'basic',
+    SUPERUSER: 'superuser',
+  };
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+
+  // Change code above this line
+}
+
+const mango = new Admin({
+  email: 'mango@mail.com',
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.accessLevel); // "superuser"

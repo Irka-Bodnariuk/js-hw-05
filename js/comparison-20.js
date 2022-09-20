@@ -1,24 +1,50 @@
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    genres: ['adventure', 'history'],
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    genres: ['fiction', 'mysticism'],
-  },
-  {
-    title: 'Redder Than Blood',
-    author: 'Tanith Lee',
-    genres: ['horror', 'mysticism', 'adventure'],
-  },
-];
-// Change code below this line
-const allGenres = books.flatMap(book => book.genres);
-const uniqueGenres = allGenres.filter(
-  (element, index, array) => array.indexOf(element) === index
-);
-console.log(allGenres);
-console.log(uniqueGenres);
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+  // Change code below this line
+  blacklistedEmails = [];
+
+  static AccessLevel = {
+    BASIC: 'basic',
+    SUPERUSER: 'superuser',
+  };
+
+  constructor({ email, accessLevel }) {
+    super(email);
+    this.accessLevel = accessLevel;
+  }
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+  isBlacklisted(email) {
+    return this.blacklistedEmails.every(element => element === email);
+  }
+
+  // Change code above this line
+}
+
+const mango = new Admin({
+  email: 'mango@mail.com',
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.accessLevel); // "superuser"
+
+mango.blacklist('poly@mail.com');
+console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+console.log(mango.isBlacklisted('mango@mail.com')); // false
+console.log(mango.isBlacklisted('poly@mail.com')); // true

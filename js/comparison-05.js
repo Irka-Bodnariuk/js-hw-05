@@ -1,18 +1,20 @@
-function calculateTotalPrice(orderedItems) {
-  let totalPrice = 0;
-  // Change code below this line
+const ancestor = {
+  name: 'Paul',
+  age: 83,
+  surname: 'Dawson',
+  heritage: 'Irish',
+};
+// Change code below this line
 
-  // for (let i = 0; i < orderedItems.length; i += 1) {
-  //   totalPrice += orderedItems[i];
-  // }
-  orderedItems.forEach(function (element) {
-    totalPrice += element;
-  });
+const parent = Object.create(ancestor);
+parent.name = 'Stacey';
+parent.surname = 'Moore';
+parent.age = 54;
 
-  // Change code above this line
-  return totalPrice;
-}
+const child = Object.create(parent);
+child.name = 'Jason';
+child.age = 27;
 
-console.log(calculateTotalPrice([12, 85, 37, 4]));
-console.log(calculateTotalPrice([164, 48, 291]));
-console.log(calculateTotalPrice([412, 371, 94, 63, 176]));
+// Change code above this line
+console.log(ancestor.hasOwnProperty('surname'));
+console.log(ancestor.isPrototypeOf('parent'));

@@ -1,21 +1,30 @@
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    genres: ['adventure', 'history'],
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    genres: ['fiction'],
-  },
-  {
-    title: 'Redder Than Blood',
-    author: 'Tanith Lee',
-    genres: ['horror', 'mysticism'],
-  },
-];
-// Change code below this line
+class Car {
+  // Change code below this line
+  static MAX_PRICE = 50000;
 
-const genres = books.flatMap(book => book.genres);
-console.log(genres);
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (newPrice <= Car.MAX_PRICE) {
+      return (this.#price = newPrice);
+    }
+  }
+  // Change code above this line
+}
+
+const audi = new Car({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000

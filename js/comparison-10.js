@@ -1,12 +1,23 @@
-// Change code below this line
-const calculateTotalPrice = orderedItems => {
-  let totalPrice = 0;
+class Storage {
+  constructor(items = []) {
+    this.items = items;
+  }
+  getItems() {
+    return this.items;
+  }
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+  removeItem(itemToRemove) {
+    const num = this.items.indexOf(itemToRemove);
+    this.items.splice(num, 1);
+  }
+}
 
-  orderedItems.forEach(item => {
-    totalPrice += item;
-  });
-
-  return totalPrice;
-};
 // Change code above this line
-console.log(calculateTotalPrice([12, 85, 37, 4]));
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]

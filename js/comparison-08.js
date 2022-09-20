@@ -1,10 +1,10 @@
-// Change code below this line
-
-const calculateTotalPrice = (quantity, pricePerItem) => {
+class Car {
+  // Change code below this line
+  constructor({ brand, model, price }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
   // Change code above this line
-  return quantity * pricePerItem;
-};
-
-console.log(calculateTotalPrice(5, 100));
-console.log(calculateTotalPrice(8, 60));
-console.log(calculateTotalPrice(3, 400));
+}
+console.log(new Car({ brand: 'Audi', model: 'Q3', price: 36000 }));

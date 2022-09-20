@@ -1,10 +1,19 @@
-function makePizza() {
-  return 'Your pizza is being prepared, please wait.';
-}
-// Change code below this line
+const pizzaPalace = {
+  pizzas: ['Supercheese', 'Smoked', 'Four meats'],
+  // Change code below this line
+  checkPizza(pizzaName) {
+    return this.pizzas.includes(pizzaName);
+  },
+  order(pizzaName) {
+    const isPizzaAvailable = this.checkPizza(pizzaName);
 
-const result = makePizza();
-const pointer = makePizza;
+    if (!isPizzaAvailable) {
+      return `Sorry, there is no pizza named «${pizzaName}»`;
+    }
 
-console.log(result);
-console.log(pointer);
+    return `Order accepted, preparing «${pizzaName}» pizza`;
+  },
+  // Change code above this line
+};
+console.log(pizzaPalace.order('Smoked'));
+console.log(pizzaPalace.order('Big Mike'));

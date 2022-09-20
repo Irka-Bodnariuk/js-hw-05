@@ -1,24 +1,11 @@
-function getCommonElements(firstArray, secondArray) {
-  const commonElements = [];
+class Car {
   // Change code below this line
-
-  // for (let i = 0; i < firstArray.length; i += 1) {
-  //   if (secondArray.includes(firstArray[i])) {
-  //     commonElements.push(firstArray[i]);
-  //   }
-  // }
-  firstArray.forEach(element => {
-    if (secondArray.includes(element)) {
-      commonElements.push(element);
-    }
-  });
-
-  return commonElements;
+  constructor(brand, model, price) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
   // Change code above this line
 }
-
-console.log(getCommonElements([1, 2, 3], [2, 4]));
-console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
-console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
-console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
-console.log(getCommonElements([1, 2, 3], [10, 20, 30]));
+const audi = new Car('Audi', 'Q3', 36000);
+console.log(audi);
